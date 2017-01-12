@@ -112,11 +112,11 @@ void AtomBindings::BindTo(v8::Isolate* isolate,
 
   mate::Dictionary versions;
   if (dict.Get("versions", &versions)) {
-    versions.Set(ATOM_PROJECT_NAME, ATOM_VERSION_STRING);
-    versions.Set("chrome", CHROME_VERSION_STRING);
+    versions.SetReadOnly(ATOM_PROJECT_NAME, ATOM_VERSION_STRING);
+    versions.SetReadOnly("chrome", CHROME_VERSION_STRING);
 
     // TODO(kevinsawicki): Remove in 2.0
-    versions.Set("atom-shell", ATOM_VERSION_STRING);
+    versions.SetReadOnly("atom-shell", ATOM_VERSION_STRING);
   }
 }
 
